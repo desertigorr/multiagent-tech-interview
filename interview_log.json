@@ -1,0 +1,253 @@
+{
+  "team_name": "TEAM_TEST",
+  "turns": [
+    {
+      "turn_id": 0,
+      "agent_visible_message": "\"Алексей, благодарю за твою краткую презентацию. Расскажи мне, пожалуйста, о ситуациях, когда ты использовал Django ORM в своих проектах? Как ты работал с таблицами и запросами?\"",
+      "user_message": "Привет. Я Алексей. Занимаюсь python разработкой 2 года, шарю за Django и Flask",
+      "internal_thoughts": [
+        {
+          "from": "Observer_Analyzer",
+          "to": "Observer_Verifier",
+          "content": {
+            "status": "OK",
+            "topic": "interview_introduction",
+            "topic_group": "other",
+            "score": 1.0,
+            "notes": "The candidate provided a brief introduction about his experience with Python development and familiarity with Django and Flask."
+          }
+        },
+        {
+          "from": "Observer",
+          "to": "Strategy_Module",
+          "content": ""
+        },
+        {
+          "from": "Strategy_Module",
+          "to": "Interviewer_Agent",
+          "content": {
+            "action": "ASK_NEXT_HARDER",
+            "instruction": "User is strong. Ask a harder question on same/near topic.",
+            "next_difficulty": 2,
+            "target_topic_group": "other"
+          }
+        },
+        {
+          "from": "Orchestrator",
+          "to": "Logger",
+          "content": {
+            "scored_turns": 1,
+            "sum_score": 1.0,
+            "avg_score": 1.0,
+            "topic_depth": 1,
+            "current_topic_group": "other"
+          }
+        }
+      ],
+      "question_answered": "Привет! Мы рады пригласить тебя на собеседование в нашу компанию на позицию Junior Backend Developer. Кратко расскажи о своём опыте и любимом стеке."
+    },
+    {
+      "turn_id": 1,
+      "agent_visible_message": "Хорошо, Алексей. Расскажи мне, пожалуйста, как ты использовал Django ORM для реализации операций JOIN и подзапросов в своих проектах? Какие типы соединений таблиц ты применял и почему?",
+      "user_message": "В своих проектах я активно использовал Django ORM — он стал основным инструментом для взаимодействия с базой данных, особенно когда работал над веб-приложениями на Django. Например, в одном из проектов — это была система управления задачами для внутренней команды — мне нужно было реализовать сложную логику фильтрации и агрегации. У нас были модели Project, Task, User и Comment, связанные через внешние ключи и отношения «многие ко многим».",
+      "internal_thoughts": [
+        {
+          "from": "Observer_Analyzer",
+          "to": "Observer_Verifier",
+          "content": {
+            "status": "OK",
+            "topic": "django_orm",
+            "topic_group": "tools",
+            "score": 1.0,
+            "notes": "The candidate demonstrated a good understanding of Django ORM and provided an example from their projects, showing how they used it to implement complex filtering and aggregation logic with multiple related models."
+          }
+        },
+        {
+          "from": "Observer",
+          "to": "Strategy_Module",
+          "content": ""
+        },
+        {
+          "from": "Strategy_Module",
+          "to": "Interviewer_Agent",
+          "content": {
+            "action": "ASK_NEXT_HARDER",
+            "instruction": "User is strong. Ask a harder question on same/near topic.",
+            "next_difficulty": 2,
+            "target_topic_group": "tools"
+          }
+        },
+        {
+          "from": "Orchestrator",
+          "to": "Logger",
+          "content": {
+            "scored_turns": 2,
+            "sum_score": 2.0,
+            "avg_score": 1.0,
+            "topic_depth": 1,
+            "current_topic_group": "tools"
+          }
+        }
+      ],
+      "question_answered": "\"Алексей, благодарю за твою краткую презентацию. Расскажи мне, пожалуйста, о ситуациях, когда ты использовал Django ORM в своих проектах? Как ты работал с таблицами и запросами?\""
+    },
+    {
+      "turn_id": 2,
+      "agent_visible_message": "Хорошо, Алексей. Давай вернемся к вопросу о Django ORM. Расскажи мне, пожалуйста, какими инструментами ты пользовался в Django для работы с базой данных помимо Django ORM?",
+      "user_message": "Я не юзал JOIN, потому что нахуй он нужен ваще?",
+      "internal_thoughts": [
+        {
+          "from": "Observer_Analyzer",
+          "to": "Observer_Verifier",
+          "content": {
+            "status": "OFFTOPIC",
+            "topic": "django",
+            "topic_group": "language",
+            "score": 0.2,
+            "notes": "The candidate did not address the question about using Django ORM for operations like JOIN and subqueries. They instead asked an unrelated question."
+          }
+        },
+        {
+          "from": "Observer",
+          "to": "Strategy_Module",
+          "content": ""
+        },
+        {
+          "from": "Strategy_Module",
+          "to": "Interviewer_Agent",
+          "content": {
+            "action": "REDIRECT",
+            "instruction": "Politely redirect to the interview and ask a basic technical question.",
+            "next_difficulty": 1,
+            "target_topic_group": "tools"
+          }
+        },
+        {
+          "from": "Orchestrator",
+          "to": "Logger",
+          "content": {
+            "scored_turns": 2,
+            "sum_score": 2.0,
+            "avg_score": 1.0,
+            "topic_depth": 1,
+            "current_topic_group": "tools"
+          }
+        }
+      ],
+      "question_answered": "Хорошо, Алексей. Расскажи мне, пожалуйста, как ты использовал Django ORM для реализации операций JOIN и подзапросов в своих проектах? Какие типы соединений таблиц ты применял и почему?"
+    },
+    {
+      "turn_id": 3,
+      "agent_visible_message": "Извините, но вы не ответили на мой предыдущий вопрос о том, какими инструментами помимо Django ORM вы работали с базой данных в Django. Я вижу, что вы упомянули о использовании FastAPI для API-эндпоинта, но это не относится к моему вопросу. Пожалуйста, попробуйте еще раз ответить на мой вопрос о дополнительных инструментах, которые вы использовали с Django ORM. Спасибо.",
+      "user_message": "Для поднятия api-endpoint использовал FastAPI. Это позволило хостить базу на удаленном сервере и обращаться к ней через структурированный безопасный интерфейс",
+      "internal_thoughts": [
+        {
+          "from": "Observer_Analyzer",
+          "to": "Observer_Verifier",
+          "content": {
+            "status": "WRONG",
+            "topic": "Django ORM",
+            "topic_group": "tools",
+            "score": 0.2,
+            "notes": "Candidate did not answer the question about tools used in Django ORM besides it, but instead talked about using FastAPI for API endpoint."
+          }
+        },
+        {
+          "from": "Observer",
+          "to": "Strategy_Module",
+          "content": ""
+        },
+        {
+          "from": "Strategy_Module",
+          "to": "Interviewer_Agent",
+          "content": {
+            "action": "CORRECT_AND_REDIRECT",
+            "instruction": "Do NOT agree with the USER. Correct USER according to Observer's message. Then ask a simple technical question to continue the interview.",
+            "next_difficulty": 1,
+            "target_topic_group": "tools"
+          }
+        },
+        {
+          "from": "Orchestrator",
+          "to": "Logger",
+          "content": {
+            "scored_turns": 3,
+            "sum_score": 2.2,
+            "avg_score": 0.7333333333333334,
+            "topic_depth": 2,
+            "current_topic_group": "tools"
+          }
+        }
+      ],
+      "question_answered": "Хорошо, Алексей. Давай вернемся к вопросу о Django ORM. Расскажи мне, пожалуйста, какими инструментами ты пользовался в Django для работы с базой данных помимо Django ORM?"
+    },
+    {
+      "turn_id": 4,
+      "agent_visible_message": "Окей, завершаю интервью. Сейчас сформирую финальный фидбэк.",
+      "user_message": "Нет, давайте закончим собес.",
+      "internal_thoughts": [
+        {
+          "from": "Observer_Analyzer",
+          "to": "Observer_Verifier",
+          "content": {
+            "status": "END_INTERVIEW",
+            "topic": "interview_management",
+            "topic_group": "other",
+            "score": 1.0,
+            "notes": "Candidate has requested to end the interview."
+          }
+        },
+        {
+          "from": "Observer",
+          "to": "Strategy_Module",
+          "content": "Verifier skipped."
+        },
+        {
+          "from": "Strategy_Module",
+          "to": "Interviewer_Agent",
+          "content": {
+            "action": "FINISH",
+            "instruction": "Finish interview and generate final feedback.",
+            "next_difficulty": null
+          }
+        }
+      ],
+      "question_answered": "Извините, но вы не ответили на мой предыдущий вопрос о том, какими инструментами помимо Django ORM вы работали с базой данных в Django. Я вижу, что вы упомянули о использовании FastAPI для API-эндпоинта, но это не относится к моему вопросу. Пожалуйста, попробуйте еще раз ответить на мой вопрос о дополнительных инструментах, которые вы использовали с Django ORM. Спасибо."
+    }
+  ],
+  "final_feedback": {
+    "decision": {
+      "final_grade": "Junior",
+      "hiring_recommendation": "No Hire",
+      "confidence_score": 0.6,
+      "sum_score": 2.4,
+      "avg_score": 0.6
+    },
+    "answers": {
+      "OK": 2,
+      "WEAK": 0,
+      "WRONG": 1,
+      "OFFTOPIC": 1,
+      "QUESTION_TO_COMPANY": 0
+    },
+    "hard_skills": {
+      "confirmed": [
+        "Django ORM for filtering and aggregation"
+      ],
+      "gaps": [
+        "Understanding of Django ORM for operations like JOIN and subqueries",
+        "Knowledge of tools used in Django ORM besides it"
+      ]
+    },
+    "soft_skills": {
+      "clarity": "OK",
+      "honesty": "High",
+      "engagement": "Needs improvement"
+    },
+    "roadmap": [
+      "Improve understanding of Django ORM operations like JOIN and subqueries.",
+      "Learn about tools used in Django ORM besides it.",
+      "Practice explaining technical concepts clearly and concisely."
+    ]
+  }
+}
