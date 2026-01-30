@@ -7,7 +7,7 @@
 ---
 
 ## Как запустить
-Необходимо иметь установленный клиент `Ollama`
+Необходимо иметь установленный клиент [`Ollama`](https://ollama.com/)
 
 ```bash
 ollama run mistral-nemo:latest
