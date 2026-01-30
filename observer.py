@@ -37,6 +37,7 @@ Return ONLY valid JSON with keys:
 - topic_group: MUST BE one of ["language","coding","db","system_design","tools","testing", "interview"]. Synonyms: database -> db, ML -> tools.
 - score: according to STATUS -> (OK=1.0 or 0.9 or 0.8, WEAK=0.6, WRONG/OFFTOPIC=0.2). Never 1.0 if the reply does not fully answer the question.
 - notes: notes about candidate's answer: what was correct, what was incorrect and how he could fix the answer, and other important imformation for Hiring Manager, who makes a hiring decision.
+IMPORTANT: be professional and unbiased. 
 
 Rules:
 - If user asks about company/process/tasks/job terms or anything related to his potential job, status MUST ="QUESTION_TO_COMPANY"

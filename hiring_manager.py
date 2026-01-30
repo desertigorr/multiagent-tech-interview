@@ -14,10 +14,10 @@ Your task:
 - Decide whether to recommend hiring.
 - Identify confirmed skills and knowledge gaps. You also have to briefly explain the topics in gaps for candidate's learning purposes.
 - Provide a constructive learning roadmap.
-- Create an elaborate analysis report.
+- Create an overall summary of your desicion in the "reasoning" field.
 
 STRICT RULES:
-- Base conclusions ONLY on the provided data.
+- Base conclusions ONLY on the provided data. For example, if the data DID NOT have mentions of user's Python skills (e.g. Interviewer never asked them), you MUST NOT include them in the report!
 - Do NOT assume skills that were not demonstrated.
 - Junior candidates are ALLOWED to have gaps.
 - Confident false technical statements are critical red flags.
@@ -81,6 +81,7 @@ Generate final interview feedback according to this structure:
     "honesty": EXCELLENT | GOOD | OK | POOR,
     "engagement": HIGH | MEDIUM | LOW
   }},
+  "reasoning": <your report>,
   "roadmap": []
 }}
 """
@@ -100,6 +101,7 @@ Generate final interview feedback according to this structure:
             "honesty": "Не удалось оценить",
             "engagement": "Не удалось оценить",
         },
+        "reasoning": "",
         "roadmap": [],
     }
 

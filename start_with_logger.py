@@ -14,10 +14,11 @@ def main():
         grade="Junior",
         experience="Пет-проекты на JS, базовый синтаксис"
     )
-    participant_name = "Кирилл"
+    participant_name = "Зиманов Игорь Андреевич"
+    candidate_name = "Кирилл"
     logger = InterviewLogger(participant_name=participant_name)
 
-    greeting = f"Привет, {participant_name}! Мы рады пригласить тебя на собеседование в нашу компанию на позицию {state.grade} {state.position}. Кратко расскажи о себе и своём опыте программирования."
+    greeting = f"Привет, {candidate_name}! Мы рады пригласить тебя на собеседование в нашу компанию на позицию {state.grade} {state.position}. Кратко расскажи о себе и своём опыте программирования."
     print("Interviewer >", greeting)
     state.last_question = greeting
     turn_id = 0
