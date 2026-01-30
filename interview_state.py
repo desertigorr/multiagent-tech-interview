@@ -9,16 +9,14 @@ class InterviewState:
 
     turn_id: int = 0
 
-    # последние 3 сообщения пользователя
-    user_history: deque[str] = field(default_factory=lambda: deque(maxlen=3))
+    # последние n сообщений пользователя
+    user_history: deque[str] = field(default_factory=lambda: deque(maxlen=6))
 
-    # метрики
+    # метрики и логи
     topics_covered: list[str] = field(default_factory=list)
     red_flags: list[str] = field(default_factory=list)
     scored_turns: int = 0
-    sum_score: float = 0.0  # OK/WEAK/FAIL -> 1/0.6/0.2
+    sum_score: float = 0.0 
     current_topic_group: str = "other"
     topic_depth: int = 0
-
-    # последний вопрос интервьюера (для Analyzer: оценка релевантности ответа)
     last_question: str = ""

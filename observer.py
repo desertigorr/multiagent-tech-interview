@@ -1,13 +1,8 @@
 import json
 from typing import Any, Dict, List
-
 from call_llm import call_llm
 from interview_state import InterviewState
 from topics import normalize_topic_group
-
-# Verifier перепроверяет только claims от Analyzer (checkable факты). Self-report не трогает.
-# По умолчанию выключен: меньше галлюцинаций, проще пайплайн.
-VERIFIER_ENABLED = False
 
 
 def _safe_json_parse(text: str, fallback: dict) -> dict:
@@ -33,7 +28,7 @@ def _llm_json(system_prompt: str, prompt: str, fallback: Dict[str, Any]) -> Dict
 ANALYZER_SYSTEM = """
 You are Observer_Analyzer Agent in a technical interview. You recieve Interviewer's QUESTION and candidate's ANSWER.
 
-RELEVANCE (critical): You are given the last question from the interviewer. The user's message must ANSWER that question. 
+RELEVANCE (critical): You are given the last question from the interviewer. The user's message must answer that question. 
 If the user does not answer (e.g. vague "I do ML" when asked "Which ML methods do you use?"), or evades, or only acknowledges without substance => status MUST be WEAK or FAIL, score 0.6 or 0.2. OK/1.0 only when the reply is relevant, specific, and actually addresses the question.
 
 Return ONLY valid JSON with keys:
@@ -57,7 +52,7 @@ IMPORTANT: Fact should be considered FALSE if you can check it. Example: "Python
 
 def observer_analyze(state: InterviewState, user_message: str) -> tuple[Dict[str, Any], List[Dict[str, Any]]]:
     trace = []
-    recent = "\n".join(f"- {m}" for m in state.user_history)
+    recent = "\n".join(f"- {m}" for m in list(state.user_history)[:-1])
     last_q = (state.last_question or "").strip()
 
     analyzer_prompt = f"""
@@ -92,9 +87,9 @@ def observer_analyze(state: InterviewState, user_message: str) -> tuple[Dict[str
         analysis["status"] = "ERROR"
 
     try:
-        s = float(analysis.get("score", -1))
+        s = float(analysis.get("score", 0))
     except Exception:
-        s = -1
+        s = 0
 
     analysis["score"] = s
     analysis["topic_group"] = normalize_topic_group(analysis.get("topic_group") or "other")

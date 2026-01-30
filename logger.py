@@ -3,9 +3,9 @@ from typing import Any
 
 
 class InterviewLogger:
-    def __init__(self, team_name: str):
+    def __init__(self, participant_name: str):
         self.data = {
-            "team_name": team_name,
+            "participant_name": participant_name,
             "turns": [],
             "final_feedback": None
         }
@@ -14,9 +14,9 @@ class InterviewLogger:
         self,
         turn_id: int,
         agent_visible_message: str,
-        question_answered: str,
         user_message: str,
-        internal_thoughts: Any
+        internal_thoughts: Any,
+        question_answered: str,
     ):
         turn = {
             "turn_id": turn_id,
@@ -25,7 +25,7 @@ class InterviewLogger:
             "internal_thoughts": internal_thoughts
         }
         if question_answered is not None:
-            turn["question_answered"] = question_answered
+            turn["agent_visible_message"] = question_answered
         self.data["turns"].append(turn)
 
     def set_final_feedback(self, final_feedback: Any):

@@ -4,7 +4,6 @@ from typing import Any, Dict, List, Optional
 
 import streamlit as st
 
-
 st.set_page_config(page_title="Interview Chat", layout="wide")
 st.title("💬 Interview Chat (log viewer)")
 
@@ -36,15 +35,7 @@ st.caption(f"Team: **{data.get('team_name', 'UNKNOWN')}**")
 turns: List[Dict[str, Any]] = data.get("turns", [])
 final_feedback: Dict[str, Any] | None = data.get("final_feedback")
 
-# ──────────────────────────────
-# Tabs
-# ──────────────────────────────
-
 tab_chat, tab_report = st.tabs(["💬 Interview Log", "📊 Final Report"])
-
-# ──────────────────────────────
-# TAB 1 — CHAT / LOG
-# ──────────────────────────────
 
 with tab_chat:
     for t in turns:
@@ -80,9 +71,6 @@ with tab_chat:
                 st.markdown("**Strategy_Module**")
                 st.json(strat[0].get("content", {}))
 
-# ──────────────────────────────
-# TAB 2 — FINAL REPORT
-# ──────────────────────────────
 
 with tab_report:
     if not final_feedback:

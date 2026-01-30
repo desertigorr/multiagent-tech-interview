@@ -59,7 +59,7 @@ def strategy_decide(state: InterviewState, obs: dict, user_message: str = "") ->
     if status == "WRONG":
         return {
             "action": "CORRECT_AND_REDIRECT",
-            "instruction": "Do NOT agree with the USER. Correct USER according to Observer's message. Then ask a simple technical question to continue the interview.",
+            "instruction": "Do NOT agree with the USER. Politely correct USER according to Observer's message. Then ask a simple technical question to continue the interview.",
             "next_difficulty": 1,
             "target_topic_group": target_group
         }

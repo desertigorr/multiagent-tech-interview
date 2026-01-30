@@ -1,8 +1,5 @@
-# Нормализация topic_group для Observer/Strategy.
-# Используйте строго этот enum во всех модулях.
-
 ALLOWED_TOPIC_GROUPS = (
-    "language", "coding", "db", "system_design", "tools", "testing", "other"
+    "coding", "db", "system_design", "tools", "testing", "other"
 )
 
 _ALIASES = {
@@ -11,7 +8,6 @@ _ALIASES = {
     "llm": "tools", "rag": "tools", "ai": "tools",
     "design": "system_design", "architecture": "system_design",
     "backend": "coding", "code": "coding", "algorithms": "coding",
-    "python": "language", "java": "language", "go": "language", "rust": "language",
     "testing": "testing", "tests": "testing", "qa": "testing",
 }
 

@@ -1,5 +1,3 @@
-# step6_loop_with_logger.py
-from turtle import position
 from logger import InterviewLogger
 from interview_state import InterviewState
 from observer import observer_analyze
@@ -11,20 +9,21 @@ from hiring_manager import generate_final_feedback
 
 def main():
     state = InterviewState(
-        position="Backend Developer",
+        position="JavaSript Developer",
         grade="Junior",
-        experience="Пет-проекты на Django, немного SQL."
+        experience="Пет-проекты на JS, базовый синтаксис"
     )
-    logger = InterviewLogger(team_name="TEAM_TEST")
+    participant_name = "Кирилл"
+    logger = InterviewLogger(participant_name=participant_name)
 
-    greeting = f"Привет! Мы рады пригласить тебя на собеседование в нашу компанию на позицию {state.grade} {state.position}. Кратко расскажи о своём опыте и любимом стеке."
+    greeting = f"Привет, {participant_name}! Мы рады пригласить тебя на собеседование в нашу компанию на позицию {state.grade} {state.position}. Кратко расскажи о себе и своём опыте программирования."
     print("BOT>", greeting)
     state.last_question = greeting
     turn_id = 0
 
     while True:
         user_message = input("\nYOU> ").strip()
-        state.user_history.append(user_message)
+        state.user_history.append(state.last_question)
 
         obs, trace = observer_analyze(state, user_message)
         decision = strategy_decide(state, obs, user_message)
@@ -36,11 +35,7 @@ def main():
 
             internal_thoughts = []
             if trace:
-                internal_thoughts.append({"from":"Observer_Analyzer","to":"Observer_Verifier","content": trace[0]["output"]})
-                if len(trace) > 1:
-                    internal_thoughts.append({"from":"Observer_Verifier","to":"Strategy_Module","content": trace[1]["output"]})
-                else:
-                    internal_thoughts.append({"from":"Observer","to":"Strategy_Module","content":"Verifier skipped."})
+                internal_thoughts.append({"from":"Observer_Analyzer","to":"Strategy_Module","content": trace[0]["output"]})
             internal_thoughts.append({"from":"Strategy_Module","to":"Interviewer_Agent","content": decision})
 
             logger.log_turn(
@@ -74,11 +69,11 @@ def main():
         # internal thoughts
         internal_thoughts = []
         if trace:
-            internal_thoughts.append({"from":"Observer_Analyzer","to":"Observer_Verifier","content": trace[0]["output"]})
-            if len(trace) > 1:
-                internal_thoughts.append({"from":"Observer_Verifier","to":"Strategy_Module","content": trace[1]["output"]})
-            else:
-                internal_thoughts.append({"from":"Observer","to":"Strategy_Module","content":""})
+            internal_thoughts.append({"from":"Observer_Analyzer","to":"Strategy_Module","content": trace[0]["output"]})
+            # if len(trace) > 1:
+            #     internal_thoughts.append({"from":"Observer_Verifier","to":"Strategy_Module","content": trace[1]["output"]})
+            # else:
+            #     internal_thoughts.append({"from":"Observer","to":"Strategy_Module","content":""})
 
         internal_thoughts.append({"from":"Strategy_Module","to":"Interviewer_Agent","content": decision})
         internal_thoughts.append({"from":"Orchestrator","to":"Logger","content": {
