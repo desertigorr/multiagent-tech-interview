@@ -12,7 +12,7 @@
 ```bash
 ollama run mistral-nemo:latest
 ```
-После установки и запуска LLM:
+Установить виртуальное окружение и библиотеки:
 
 ```bash
 python venv venv
@@ -25,6 +25,12 @@ python start_with_logger.py
 ```bash
 streamlit run visualize.py
 ```
+
+Можно привести логи к структуре из ТЗ:
+```bash
+python adapter.py
+```
+Только необходимо указать нужные вам пути в самом `adapter.py`
 
 
 ## Основные сущности и агенты
@@ -86,6 +92,9 @@ streamlit run visualize.py
 
 ### `Visualizer`
 Streamlit-демка чтобы не смотреть сырой json с логами =)
+
+### `Adapter`  
+Приводит логи к нужному формату для проверки экспертами
 
 ---
 
