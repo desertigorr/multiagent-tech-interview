@@ -5,6 +5,7 @@ from strategy import strategy_decide
 from interviewer import interviewer_respond
 from build_summary import build_interview_summary
 from hiring_manager import generate_final_feedback
+from adapter import adapt_log_to_readable_submission
 
 
 def main():
@@ -17,12 +18,12 @@ def main():
     logger = InterviewLogger(participant_name=participant_name)
 
     greeting = f"Привет, {participant_name}! Мы рады пригласить тебя на собеседование в нашу компанию на позицию {state.grade} {state.position}. Кратко расскажи о себе и своём опыте программирования."
-    print("BOT>", greeting)
+    print("Interviewer >", greeting)
     state.last_question = greeting
     turn_id = 0
 
     while True:
-        user_message = input("\nYOU> ").strip()
+        user_message = input("\nYOU > ").strip()
         state.user_history.append(state.last_question)
 
         obs, trace = observer_analyze(state, user_message)

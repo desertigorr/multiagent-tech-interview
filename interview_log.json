@@ -4,17 +4,17 @@
     {
       "turn_id": 0,
       "agent_visible_message": "Привет, Кирилл! Мы рады пригласить тебя на собеседование в нашу компанию на позицию Junior JavaSript Developer. Кратко расскажи о себе и своём опыте программирования.",
-      "user_message": "Привет, я занимаюсь JS уже 4 месяца",
+      "user_message": "Привет! Занимаюсь JS-разработкой уже 2 года, писал различные скрипты и пет-проекты, например, приложение с погодой",
       "internal_thoughts": [
         {
           "from": "Observer_Analyzer",
           "to": "Strategy_Module",
           "content": {
-            "status": "WEAK",
-            "topic": "interview_intro",
-            "topic_group": "other",
-            "score": 0.6,
-            "notes": "The candidate's response is brief and does not fully address the question about their experience and programming background. They only mention the duration of time they have been working with JavaScript."
+            "status": "OK",
+            "topic": "interview",
+            "topic_group": "interview",
+            "score": 0.8,
+            "notes": "The candidate has relevant experience in JavaScript development with a focus on pet projects and apps like weather applications. They could have provided more details about the technologies used or any challenges faced during their projects."
           }
         },
         {
@@ -24,7 +24,7 @@
             "action": "ASK_NEXT",
             "instruction": "Ask the next relevant technical question.",
             "next_difficulty": null,
-            "target_topic_group": "other"
+            "target_topic_group": "interview"
           }
         },
         {
@@ -32,18 +32,18 @@
           "to": "Logger",
           "content": {
             "scored_turns": 1,
-            "sum_score": 0.6,
-            "avg_score": 0.6,
+            "sum_score": 0.8,
+            "avg_score": 0.8,
             "topic_depth": 1,
-            "current_topic_group": "other"
+            "current_topic_group": "interview"
           }
         }
       ]
     },
     {
       "turn_id": 1,
-      "agent_visible_message": "Хорошо, Кирилл! Спасибо за информацию о твоем опыте с JavaScript. Чтобы лучше понять твой уровень знаний, могу ли я задать тебе вопрос о различиях между let и var в JavaScript?",
-      "user_message": "Let и Var имеют разную область видимости, первый блочную, второй функциональную",
+      "agent_visible_message": "Привет, Кирилл! Спасибо за рассказ о себе и своем опыте программирования на JavaScript. Наш следующий вопрос связан с основными понятиями языка JavaScript. Каковы отличия между переменной, объявленной с помощью ключевого слова var, let и const?",
+      "user_message": "Var и let создают переменные, но имеют разную область видимости, а const создает константу, которую нельзя переопределить или изменить",
       "internal_thoughts": [
         {
           "from": "Observer_Analyzer",
@@ -53,7 +53,7 @@
             "topic": "javascript",
             "topic_group": "other",
             "score": 0.8,
-            "notes": "The candidate correctly identified the difference in scope between let and var, with let having block scope and var having function scope. This is a good sign of understanding."
+            "notes": "The candidate understood the difference between var, let, and const in terms of scope and mutability. However, they didn't mention that let and const have block scope while var has function scope."
           }
         },
         {
@@ -71,9 +71,9 @@
           "to": "Logger",
           "content": {
             "scored_turns": 2,
-            "sum_score": 1.4,
-            "avg_score": 0.7,
-            "topic_depth": 2,
+            "sum_score": 1.6,
+            "avg_score": 0.8,
+            "topic_depth": 1,
             "current_topic_group": "other"
           }
         }
@@ -81,8 +81,8 @@
     },
     {
       "turn_id": 2,
-      "agent_visible_message": "Хорошо, Кирилл! Спасибо за твое объяснение разницы между let и var в JavaScript. Теперь давай поговорим о другом аспекте языка. Как бы ты описал разницу между == и === операторами в JavaScript?",
-      "user_message": "Двойное равно сравнивает значения переменных, а тройное - ещё и их тип. Это из-за того, что в JS динамическая типизация, и для интерпретатора 0 == \"\" это True. А 0 === \"\" это False",
+      "agent_visible_message": "Привет Кирилл! Хорошо, что вы знаете различия между var, let и const в JavaScript. Давайте поговорим о типах данных в JavaScript. Каковы основные типы данных в этом языке программирования?",
+      "user_message": "String, Float, Int, BigInt, Number, Null, Undefined и Any",
       "internal_thoughts": [
         {
           "from": "Observer_Analyzer",
@@ -92,7 +92,7 @@
             "topic": "javascript",
             "topic_group": "other",
             "score": 1.0,
-            "notes": "The candidate correctly explained the difference between '==' and '===' operators in JavaScript, taking into account type coercion due to dynamic typing."
+            "notes": "The candidate correctly identified the basic data types in JavaScript: String, Number (including Float and Int), BigInt, Null, Undefined, and Any. This shows a good understanding of fundamental JavaScript concepts."
           }
         },
         {
@@ -102,7 +102,7 @@
             "action": "ASK_NEXT_HARDER",
             "instruction": "User is strong. Ask a harder question on same/near topic.",
             "next_difficulty": 2,
-            "target_topic_group": "coding"
+            "target_topic_group": "other"
           }
         },
         {
@@ -110,37 +110,37 @@
           "to": "Logger",
           "content": {
             "scored_turns": 3,
-            "sum_score": 2.4,
-            "avg_score": 0.7999999999999999,
-            "topic_depth": 1,
-            "current_topic_group": "coding"
+            "sum_score": 2.6,
+            "avg_score": 0.8666666666666667,
+            "topic_depth": 2,
+            "current_topic_group": "other"
           }
         }
       ]
     },
     {
       "turn_id": 3,
-      "agent_visible_message": "Хорошо, Кирилл! Спасибо за правильное объяснение разницы между '==' и '===' операторами в JavaScript. Давай теперь поговорим о цикле for..of и его отличиях от цикла for..in. Как бы ты описал главное отличие этих двух циклов?",
-      "user_message": "Затрудняюсь ответить на ваш вопрос, товарищ Интервьюер",
+      "agent_visible_message": "Привет Кирилл! Спасибо за ваш ответ о типах данных в JavaScript. Давайте углубимся немного deeper в работу с числами в этом языке программирования. Какой результат будет у следующего кода и почему?\n\n```javascript\nconsole.log(0.1 + 0.2 === 0.3);\n```\n\nЧто происходит с точными числами (floating point numbers) в JavaScript?",
+      "user_message": "Будет false потому что 0.1 + 0.2 = 0.30000000004 на машинном коде.",
       "internal_thoughts": [
         {
           "from": "Observer_Analyzer",
           "to": "Strategy_Module",
           "content": {
-            "status": "WEAK",
+            "status": "OK",
             "topic": "javascript",
-            "topic_group": "coding",
-            "score": 0.6,
-            "notes": "Candidate didn't know the difference between 'for..of' and 'for..in'. Instead of explaining, they evaded the question."
+            "topic_group": "other",
+            "score": 0.8,
+            "notes": "The candidate correctly identified that due to the binary nature of computers, decimal numbers like 0.1 and 0.2 cannot be accurately represented in memory, leading to a tiny rounding error when they are added together. The result will be very close to but not exactly equal to 0.3."
           }
         },
         {
           "from": "Strategy_Module",
           "to": "Interviewer_Agent",
           "content": {
-            "action": "ASK_NEXT_EASIER",
-            "instruction": "User said they don't know or struggle. Ask an easier question or give a brief hint, then ask again.",
-            "next_difficulty": 1,
+            "action": "ASK_NEXT",
+            "instruction": "Ask the next relevant technical question.",
+            "next_difficulty": null,
             "target_topic_group": "coding"
           }
         },
@@ -149,9 +149,9 @@
           "to": "Logger",
           "content": {
             "scored_turns": 4,
-            "sum_score": 3.0,
-            "avg_score": 0.75,
-            "topic_depth": 2,
+            "sum_score": 3.4000000000000004,
+            "avg_score": 0.8500000000000001,
+            "topic_depth": 1,
             "current_topic_group": "coding"
           }
         }
@@ -159,85 +159,46 @@
     },
     {
       "turn_id": 4,
-      "agent_visible_message": "Хорошо, Кирилл! Давай вернемся к базовому синтаксису JavaScript. Можешь объяснить, чем отличаются переменные, объявленные с помощью ключевого слова var, от тех, которые объявляются с помощью let?",
-      "user_message": "Let и Var имеют разную область видимости, первый блочную, второй функциональную",
+      "agent_visible_message": "Привет Кирилл! Спасибо за твой ответ о точных числах в JavaScript. Давай продолжим разговор о работе с числами в этом языке программирования. Какой будет результат у выражения Math.round(123.456)? Почему?",
+      "user_message": "А сколько у вас сотрудников в компании?",
       "internal_thoughts": [
         {
           "from": "Observer_Analyzer",
           "to": "Strategy_Module",
           "content": {
-            "status": "WEAK",
-            "topic": "javascript",
-            "topic_group": "coding",
-            "score": 0.6,
-            "notes": "While the candidate mentioned that 'let' has block scope and 'var' has function scope, they did not provide a detailed explanation of how these differences affect variable declaration and accessibility within different blocks and functions."
+            "status": "QUESTION_TO_COMPANY",
+            "topic": "company_info",
+            "topic_group": "interview",
+            "score": 0.0,
+            "notes": "Candidate asked about the number of employees in the company, which is a question related to the company rather than a technical topic."
           }
         },
         {
           "from": "Strategy_Module",
           "to": "Interviewer_Agent",
           "content": {
-            "action": "ASK_NEXT",
-            "instruction": "Ask the next relevant technical question.",
+            "action": "ANSWER_QUESTION_THEN_ASK",
+            "instruction": "You have to answer the candidate's question about the company briefly, then ask a technical question according to the topic and difficulty.",
             "next_difficulty": null,
-            "target_topic_group": "db"
+            "target_topic_group": "coding"
           }
         },
         {
           "from": "Orchestrator",
           "to": "Logger",
           "content": {
-            "scored_turns": 5,
-            "sum_score": 3.6,
-            "avg_score": 0.72,
+            "scored_turns": 4,
+            "sum_score": 3.4000000000000004,
+            "avg_score": 0.8500000000000001,
             "topic_depth": 1,
-            "current_topic_group": "db"
+            "current_topic_group": "coding"
           }
         }
       ]
     },
     {
       "turn_id": 5,
-      "agent_visible_message": "Хорошо, Кирилл! Переключимся на следующую тему - базы данных. Как бы ты описал разницу между SQL и NoSQL базами данных?",
-      "user_message": "SQL базы имеют строгую структуру столбцов и связей \"ключ-значение\". NoSQL базы же хранят все в коллекциях в виде объектов json",
-      "internal_thoughts": [
-        {
-          "from": "Observer_Analyzer",
-          "to": "Strategy_Module",
-          "content": {
-            "status": "OK",
-            "topic": "db",
-            "topic_group": "db",
-            "score": 0.9,
-            "notes": "The candidate correctly identified that SQL databases have a fixed schema with column and key-value relationships, while NoSQL databases store data in collections as JSON objects. However, they could have provided more details on the flexibility of schemas in NoSQL databases."
-          }
-        },
-        {
-          "from": "Strategy_Module",
-          "to": "Interviewer_Agent",
-          "content": {
-            "action": "ASK_NEXT",
-            "instruction": "Ask the next relevant technical question.",
-            "next_difficulty": null,
-            "target_topic_group": "db"
-          }
-        },
-        {
-          "from": "Orchestrator",
-          "to": "Logger",
-          "content": {
-            "scored_turns": 6,
-            "sum_score": 4.5,
-            "avg_score": 0.75,
-            "topic_depth": 2,
-            "current_topic_group": "db"
-          }
-        }
-      ]
-    },
-    {
-      "turn_id": 6,
-      "agent_visible_message": "Хорошо, Кирилл! Спасибо за твое объяснение разницы между SQL и NoSQL базами данных. Давай теперь поговорим о таблицах в этих базах данных. Какие виды ключей существуют в SQL таблицах и для чего они используются?",
+      "agent_visible_message": "Привет Кирилл! В нашей компании работает около 50 сотрудников, в том числе несколько разработчиков JavaScript. Мы ценим инициативность и желание расти как профессионалу. Теперь давай вернемся к технической части интервью. Какова разница между типом данных Number и BigInt в JavaScript?",
       "user_message": "Давай закончим собес",
       "internal_thoughts": [
         {
@@ -247,7 +208,7 @@
             "status": "END_INTERVIEW",
             "topic": "",
             "topic_group": "other",
-            "score": -1,
+            "score": 0,
             "notes": ""
           }
         },
@@ -266,33 +227,27 @@
   "final_feedback": {
     "decision": {
       "final_grade": "Junior",
-      "hiring_recommendation": "No Hire",
-      "confidence_score": 0.6,
-      "sum_score": 4.5,
-      "avg_score": 0.75
+      "hiring_recommendation": "Hire",
+      "confidence_score": 0.7,
+      "sum_score": 3.4,
+      "avg_score": 0.85
     },
     "answers": {
-      "OK": 3,
-      "WEAK": 3,
+      "OK": 4,
+      "WEAK": 0,
       "WRONG": 0,
       "OFFTOPIC": 0,
       "QUESTION_TO_COMPANY": 0
     },
     "hard_skills": {
       "confirmed": [
-        "Understanding of 'let' vs 'var'",
-        "Difference between '==' and '==='",
-        "Basic understanding of SQL vs NoSQL databases"
+        "Basic understanding of JavaScript syntax",
+        "Understands differences between var, let, and const",
+        "Knowledge of basic data types in JavaScript"
       ],
       "gaps": [
-        {
-          "topic": "'for..of' vs 'for..in' loop difference",
-          "reason": "Candidate evaded the question instead of explaining."
-        },
-        {
-          "topic": "Detailed explanation of scope for 'let' and 'var'",
-          "reason": "Candidate provided a basic understanding but lacked detailed explanation."
-        }
+        "Lack of understanding about the function scope vs block scope difference between 'var' and ('let', 'const')",
+        "Needs deeper understanding of JavaScript number representation and precision issues"
       ]
     },
     "soft_skills": {
@@ -301,9 +256,10 @@
       "engagement": "MEDIUM"
     },
     "roadmap": [
-      "Learn about different types of loops in JavaScript ('for..of', 'for..in', etc.) and their use cases.",
-      "Study variable scope in detail, including differences between 'let', 'var', and 'const' with practical examples.",
-      "Familiarize yourself with the flexibility of schemas in NoSQL databases compared to SQL."
+      "Learn about function vs block scope in JavaScript",
+      "Study JavaScript number precision issues and floating point representation",
+      "Work on more complex projects to gain practical experience",
+      "Consider learning a modern JavaScript framework/library (e.g., React, Vue.js)"
     ]
   }
 }

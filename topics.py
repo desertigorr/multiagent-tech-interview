@@ -1,5 +1,5 @@
 ALLOWED_TOPIC_GROUPS = (
-    "coding", "db", "system_design", "tools", "testing", "other"
+    "coding", "db", "system_design", "tools", "testing", "interview"
 )
 
 _ALIASES = {

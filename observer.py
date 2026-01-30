@@ -34,7 +34,7 @@ If the user does not answer (e.g. vague "I do ML" when asked "Which ML methods d
 Return ONLY valid JSON with keys:
 - status: "OK" | "WEAK" |"WRONG" |"OFFTOPIC" |"QUESTION_TO_COMPANY" |"END_INTERVIEW".
 - topic: short string (examples: "python", "java", "go", etc.)
-- topic_group: MUST BE one of ["language","coding","db","system_design","tools","testing","other"]. Synonyms: database -> db, ML -> tools.
+- topic_group: MUST BE one of ["language","coding","db","system_design","tools","testing", "interview"]. Synonyms: database -> db, ML -> tools.
 - score: according to STATUS -> (OK=1.0 or 0.9 or 0.8, WEAK=0.6, WRONG/OFFTOPIC=0.2). Never 1.0 if the reply does not fully answer the question.
 - notes: notes about candidate's answer: what was correct, what was incorrect and how he could fix the answer, and other important imformation for Hiring Manager, who makes a hiring decision.
 
@@ -42,12 +42,12 @@ Rules:
 - If user asks about company/process/tasks/job terms or anything related to his potential job, status MUST ="QUESTION_TO_COMPANY"
   Examples: ["Какие задачи будут у меня на испытательном сроке?", "Какие условия работы в вашей компании?", "Какая будет зарплата?"] => status = "QUESTION_TO_COMPANY"!
 - If user is off-topic/refuses to answer the question and NOT asks the Interviewer about company => status="OFFTOPIC"
-- If user answers the question completely incorrectly or with major mistakes => status ="WRONG" and add a note with explanation of mistake.
-- If user states false facts confidently => status="WRONG" and add a note with explanation of false fact.
+- If user answers the question completely incorrectly => status ="WRONG" and add a note with explanation of mistake.
+- If user states false facts confidently or MAKES UP non-real facts (e.g. non-existing methods, libraries, languages etc.) => status="WRONG" and add a note with explanation of false fact.
 IMPORTANT: Fact should be considered FALSE if you can check it. Example: "Python 4.0 is already out" is FALSE. "I have been working for 5 years" is NOT FALSE - you cannot verify it.
 - If user says they don't know / затрудняюсь / не помню / не уверен => status WEAK, score 0.6 (or WRONG if completely evasive).
 - If user asks you to end the interview and get to feedback and discussuion => status MUST BE "END_INTERVIEW".
-- Otherwise you should set status to "OK" if the answer is full and correct or has minor mistakes OR "WEAK" if the answer isn't full or has mistakes
+- Otherwise you should set status to "OK" if the answer is correct or has minor mistakes OR "WEAK" if the answer has significant mistakes but tries their best.
 """
 
 def observer_analyze(state: InterviewState, user_message: str) -> tuple[Dict[str, Any], List[Dict[str, Any]]]:

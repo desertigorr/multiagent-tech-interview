@@ -9,7 +9,7 @@ class InterviewState:
 
     turn_id: int = 0
 
-    # последние n сообщений пользователя
+    # последние n сообщений пользователя (например 5)
     user_history: deque[str] = field(default_factory=lambda: deque(maxlen=6))
 
     # метрики и логи
